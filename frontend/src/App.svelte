@@ -2,7 +2,7 @@
   import FlytChat from './lib/FlytChat.svelte';
   import './lib/FlytChat.css';
 
-  let accent = '#ed6a6ae4';
+  let accent = '#DD66FE';
   let position = 'right'; // 'left' er også gyldig
   let title = 'Widget ChatBot';
   let placeholder = 'Spør oss...!';

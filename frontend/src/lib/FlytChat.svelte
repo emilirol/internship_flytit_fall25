@@ -7,7 +7,7 @@
   export let title = 'Widget ChatBot';
   export let position = 'right'; // 'right' | 'left'
   export let placeholder = 'Spør oss...!';
-  export let accent = '#ed6a6ae4';
+  export let accent = '#DD66FE';
   export let botName = 'Widget ChatBot';
   export let site; // valgfritt filter som sendes til backend
   export let historyMode = 'local'; // 'local' | 'session' | 'none'
@@ -84,7 +84,7 @@
         {
           id: uid(),
           role: 'assistant',
-          text: '👋 Velkommen til ! Hva kan jeg hjelpe deg med i dag?'
+          text: '👋 Velkommen! Hva kan jeg hjelpe deg med i dag?'
         }
       ];
     }
