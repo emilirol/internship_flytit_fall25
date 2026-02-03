@@ -1,0 +1,23 @@
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+
+  flytit-api:
+    build: .
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - ES_ENDPOINT=${ES_ENDPOINT}
+      - ES_INDEX_NAME=${ES_INDEX_NAME}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "5000:8080"
+    volumes:
+      - "${DEFAULT_FOLDER}:/data/pdfs:ro"   
+    depends_on:
+      - es
+

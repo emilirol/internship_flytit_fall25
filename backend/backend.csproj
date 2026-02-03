@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <ConsoleOutputEncoding>utf-8</ConsoleOutputEncoding>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Docnet.Core" Version="2.6.0" />
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.*" />
+    <PackageReference Include="Microsoft.Extensions.AI" Version="9.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.64.0" />
+    <PackageReference Include="PdfPig" Version="0.1.11" />
+    <PackageReference Include="SkiaSharp" Version="2.88.6" /> 
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
+    <PackageReference Include="Docnet.Core.Native.Windows.x64" Version="2.5.0" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="2.88.6" /> 
+  </ItemGroup>
+
+<!--Hvis prosjekt kjører på Linux-->
+  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
+    <PackageReferance Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
+  </ItemGroup>
+
+</Project>
